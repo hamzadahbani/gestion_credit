@@ -5,18 +5,22 @@ import com.example.jee_exam_backend.dtos.*;
 import java.util.List;
 
 public interface CreditService {
-    ClientDTO saveCustomer(ClientDTO customerDTO);
-
-    CreditPersonnelDTO saveCreditPersonnel(double montant, Long customerId, String motif);
-    CreditProfessionnelDTO SaveCreditProfessionnel(double montant, Long customerId, String motif,String raisonSociale);
-    CreditImmobilierDTO saveCreditImmobilier(double montant, Long customerId, String typeBien);
-
-    List<ClientDTO> listClient();
-    CreditDTO getCredit(String accountId);
-
-
-    ClientDTO getClient(Long customerId);
-
+    ClientDTO saveClient(ClientDTO clientDTO);
+    ClientDTO getClient(Long clientId);
+    ClientDTO updateClient(ClientDTO clientDTO);
     void deleteClient(Long clientId);
+    List<ClientDTO> listClients();
+    List<ClientDTO> searchClients(String keyword);
 
+    CreditPersonnelDTO saveCreditPersonnel(CreditPersonnelDTO creditPersonnelDTO);
+    CreditImmobilierDTO saveCreditImmobilier(CreditImmobilierDTO creditImmobilierDTO);
+    CreditProfessionnelDTO saveCreditProfessionnel(CreditProfessionnelDTO creditProfessionnelDTO);
+
+    CreditDTO getCredit(Long creditId);
+    List<CreditDTO> listCreditsByClient(Long clientId);
+    List<CreditDTO> listAllCredits();
+
+    RemboursementDTO saveRemboursement(RemboursementDTO remboursementDTO);
+    List<RemboursementDTO> listRemboursementsByCredit(Long creditId);
+    List<RemboursementDTO> listAllRemboursements();
 }
