@@ -4,8 +4,15 @@ import com.example.jee_exam_backend.enums.TypeRemboursement;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Remboursement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
