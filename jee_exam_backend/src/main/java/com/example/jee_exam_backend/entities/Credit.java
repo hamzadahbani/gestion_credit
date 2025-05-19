@@ -22,24 +22,19 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Credit {
+public abstract class Credit {
     @Id
     @GeneratedValue
     private Long id;
-
     private Date dateDemande;
-
     @Enumerated(EnumType.STRING)
     private StatutCredit statut;
-
     private Date dateAcception;
     private double montant;
     private int dureeRemboursement; // in months or years
     private double tauxInteret;
-
     @ManyToOne
     private Client client;
-
     @OneToMany(mappedBy = "credit")
     private List<Remboursement> remboursements;
 }

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("PERSONNEL")
+@DiscriminatorValue("CP")
 public class CreditPersonnel extends Credit {
     private String motif;
 }

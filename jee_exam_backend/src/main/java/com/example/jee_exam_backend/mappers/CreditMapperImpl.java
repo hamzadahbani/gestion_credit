@@ -35,13 +35,6 @@ public class CreditMapperImpl {
         }
     }
 
-    public Credit fromCreditDTO(CreditDTO dto) {
-        // Not recommended to use this unless you know the exact subtype
-        Credit credit = new Credit();
-        BeanUtils.copyProperties(dto, credit);
-        return credit;
-    }
-
     public CreditPersonnelDTO fromCreditPersonnel(CreditPersonnel credit) {
         CreditPersonnelDTO dto = new CreditPersonnelDTO();
         BeanUtils.copyProperties(credit, dto);

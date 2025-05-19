@@ -19,13 +19,10 @@ public class Remboursement {
     private Long id;
     private Date date;
     private double montant;
-
     @Enumerated(EnumType.STRING)
     private TypeRemboursement type;
-
     @ManyToOne
     @JoinColumn(name = "credit_id")
     private Credit credit;
-
     // Getters et Setters
 }
