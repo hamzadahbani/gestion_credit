@@ -1,8 +1,10 @@
 package com.example.jee_exam_backend.dtos;
 
-public class CreditPersonnelDTO {
-    private Long id;
-    private double montant;
+import lombok.Data;
+
+
+@Data
+public class CreditPersonnelDTO extends CreditDTO{
     private String motif;
-    private ClientDTO clientDTO;
+
 }

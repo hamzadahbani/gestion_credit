@@ -2,6 +2,7 @@ package com.example.jee_exam_backend;
 
 import com.example.jee_exam_backend.entities.*;
 import com.example.jee_exam_backend.enums.StatutCredit;
+import com.example.jee_exam_backend.enums.TypeBien;
 import com.example.jee_exam_backend.enums.TypeRemboursement;
 import com.example.jee_exam_backend.repositories.ClientRepository;
 import com.example.jee_exam_backend.repositories.CreditRepository;
@@ -36,7 +37,7 @@ public class JeeExamBackendApplication {
 			clientRepository.findAll().forEach(client -> {
 				// CreditImmobilie
 				CreditImmobilier creditImmobilier = new CreditImmobilier();
-				creditImmobilier.setTypeBien("Voiture");
+				creditImmobilier.setTypeBien(TypeBien.APPARTEMENT);
 				creditImmobilier.setMontant(Math.random()*100000);
 				creditImmobilier.setStatut(StatutCredit.EN_COURS);
 				creditImmobilier.setClient(client);

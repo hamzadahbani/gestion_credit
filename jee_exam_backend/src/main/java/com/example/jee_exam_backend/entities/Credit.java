@@ -16,30 +16,31 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE",length = 4)
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "credit_type", discriminatorType = DiscriminatorType.STRING)
-public abstract class Credit {
+public class Credit {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     private Date dateDemande;
+
+    @Enumerated(EnumType.STRING)
     private StatutCredit statut;
+
     private Date dateAcception;
     private double montant;
-    private int duree; // en mois
+    private int dureeRemboursement; // in months or years
     private double tauxInteret;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
     private Client client;
 
-    @OneToMany(mappedBy = "credit", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "credit")
     private List<Remboursement> remboursements;
-
-    // Getters et Setters
 }
 

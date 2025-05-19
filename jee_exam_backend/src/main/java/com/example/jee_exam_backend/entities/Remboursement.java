@@ -15,11 +15,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Remboursement {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
-
     private Date date;
     private double montant;
+
+    @Enumerated(EnumType.STRING)
     private TypeRemboursement type;
 
     @ManyToOne
